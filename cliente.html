@@ -18,7 +18,8 @@
         <p><label for="numero">Numero</label> <input type="text" id="numero"></p>
         <p><label for="población">Población</label> <input type="text" id="población"></p>
     </fieldset> 
-    <p><label for="aficiones">Aficiones</label> <input type="text" id="aficiones"></p>  
+    <p><label for="aficiones">Aficiones</label>
+        <select name="aficiones" id="aficiones"></select></p>
     
     
 
@@ -36,6 +37,7 @@
                 document.getElementById("numero").value=cliente.dirección.numero;
                 document.getElementById("población").value=cliente.dirección.población;
                 for(aficion of cliente.aficiones){
+                    let opcion = document.createElement("option");
                     document.getElementById("aficiones").value+=aficion+" , "
                 }
 
