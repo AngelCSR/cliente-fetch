@@ -37,8 +37,9 @@
                 document.getElementById("numero").value=cliente.dirección.numero;
                 document.getElementById("población").value=cliente.dirección.población;
                 for(aficion of cliente.aficiones){
-                    let opcion = document.createElement("option");
-                    document.getElementById("aficiones").value+=aficion+" , "
+                    let miOpcion = document.createElement("option");
+                    miOpcion.innerHTML=aficion;
+                    document.getElementById("aficiones").appendChild(miOpcion);
                 }
 
 
