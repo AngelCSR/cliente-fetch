@@ -12,6 +12,16 @@
     <p><label for="nombre">Nombre</label> <input type="text" id="nombre"></p>
     <p><label for="apellidos">Apellidos</label> <input type="text" id="apellidos"></p>
     <p><label for="suscrito">subscrito</label> <input type="checkbox" id="suscrito"></p>
+    <fieldset>
+        <legend>Dirección</legend>
+        <p><label for="calle">Calle</label> <input type="text" id="calle"></p>
+        <p><label for="numero">Numero</label> <input type="text" id="numero"></p>
+        <p><label for="población">Población</label> <input type="text" id="población"></p>
+    </fieldset> 
+    <p><label for="aficiones">Aficiones</label> <input type="text" id="aficiones"></p>  
+    
+    
+
     <script>
 
         fetch('cliente.json')
@@ -22,6 +32,13 @@
                 if(cliente.suscrito){
                     document.getElementById("suscrito").setAttribute("checked","checked")
                 }
+                document.getElementById("calle").value=cliente.dirección.calle;
+                document.getElementById("numero").value=cliente.dirección.numero;
+                document.getElementById("población").value=cliente.dirección.población;
+                for(aficion of cliente.aficiones){
+                    document.getElementById("aficiones").value+=aficion+" , "
+                }
+
 
             });
 
