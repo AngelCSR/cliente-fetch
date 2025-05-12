@@ -9,11 +9,21 @@
 
 <body>
     <h1>Datos cliente</h1>
+    <p><label for="nombre">Nombre</label> <input type="text" id="nombre"></p>
+    <p><label for="apellidos">Apellidos</label> <input type="text" id="apellidos"></p>
+    <p><label for="suscrito">subscrito</label> <input type="checkbox" id="suscrito"></p>
     <script>
 
         fetch('cliente.json')
             .then(respuesta => respuesta.json())
-            .then(cliente => alert(cliente.nombre));
+            .then(cliente => {
+                document.getElementById("nombre").value=cliente.nombre;
+                document.getElementById("apellidos").value=cliente.apellidos;
+                if(cliente.suscrito){
+                    document.getElementById("suscrito").setAttribute("checked","checked")
+                }
+
+            });
 
 
     </script>
